@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 public class Beans {
 
     @Bean
-    public HttpClient getHttpClient(){
+    public HttpClient getHttpClient() {
         return HttpClient.newHttpClient();
     }
 

@@ -10,18 +10,18 @@ public class ItunesApiUris {
     private ItunesApiConfiguration itunesApiConfiguration;
 
     @Autowired
-    public ItunesApiUris(ItunesApiConfiguration itunesApiConfiguration){
+    public ItunesApiUris(ItunesApiConfiguration itunesApiConfiguration) {
         this.itunesApiConfiguration = itunesApiConfiguration;
     }
 
-    public String getUriToSearchArtist(String keyword){
-      String hostname = itunesApiConfiguration.getHostname();
-      String search = itunesApiConfiguration.getArtist();
+    public String getUriToSearchArtist(String keyword) {
+        String hostname = itunesApiConfiguration.getHostname();
+        String search = itunesApiConfiguration.getArtist();
 
-      return hostname.concat(search).concat(keyword);
+        return hostname.concat(search).concat(keyword);
     }
 
-    public String getTopArtistAlbums(String artistId){
+    public String getTopArtistAlbums(String artistId) {
         String hostname = itunesApiConfiguration.getHostname();
         String search = itunesApiConfiguration.getAlbum();
 

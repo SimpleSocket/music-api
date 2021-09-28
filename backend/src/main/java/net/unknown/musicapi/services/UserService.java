@@ -17,15 +17,15 @@ public class UserService {
     private ArtistRepo artistRepo;
 
     @Autowired
-    public UserService(UserRepo userRepo, ArtistRepo artistRepo){
+    public UserService(UserRepo userRepo, ArtistRepo artistRepo) {
         this.userRepo = userRepo;
         this.artistRepo = artistRepo;
     }
 
-    public void saveArtistForUser(ArtistDto artistDto, long userId){
+    public void saveArtistForUser(ArtistDto artistDto, long userId) {
         Optional<User> wrappedUser = userRepo.findById(userId);
 
-        if (wrappedUser.isPresent()){
+        if (wrappedUser.isPresent()) {
             User user = wrappedUser.get();
             Artist artist = new Artist(artistDto.getArtistId(), artistDto.getArtistName(), artistDto.getAmgArtistId());
             artist.addUser(user);
@@ -33,8 +33,8 @@ public class UserService {
         }
     }
 
-    public boolean isFavoriteArtist(long amgArtistId, long userId){
+    public boolean isFavoriteArtist(long amgArtistId, long userId) {
         Optional<User> wrappedUser = userRepo.findById(userId);
-        return wrappedUser.map( user -> user.isArtistPresent(amgArtistId)).orElse(false);
+        return wrappedUser.map(user -> user.isArtistPresent(amgArtistId)).orElse(false);
     }
 }

@@ -1,6 +1,9 @@
 package net.unknown.musicapi.persistence.models;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,12 +24,12 @@ public class User {
     public User() {
     }
 
-    public void addArtist(Artist artist){
+    public void addArtist(Artist artist) {
         artists.add(artist);
     }
 
-    public boolean isArtistPresent(long artistId){
-        return artists.stream().anyMatch( artist -> artist.getArtistId() == artistId);
+    public boolean isArtistPresent(long artistId) {
+        return artists.stream().anyMatch(artist -> artist.getArtistId() == artistId);
     }
 
     public List<Artist> getArtists() {

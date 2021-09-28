@@ -35,8 +35,8 @@ public class UserIdFilter implements Filter {
 
         long authHeader;
         try {
-             authHeader = Long.parseLong(header);
-        } catch (NumberFormatException e){
+            authHeader = Long.parseLong(header);
+        } catch (NumberFormatException e) {
             log.warn("Authorization header is not expected format, expected long, received {}", header);
             response.setStatus(HttpStatus.UNAUTHORIZED.value());
             return;

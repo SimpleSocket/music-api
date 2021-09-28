@@ -1,6 +1,9 @@
 package net.unknown.musicapi.persistence.models;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,10 +28,9 @@ public class Artist {
         this.amgArtistId = amgArtistId;
     }
 
-    public void addUser(User user){
+    public void addUser(User user) {
         users.add(user);
     }
-
 
     public long getArtistId() {
         return artistId;

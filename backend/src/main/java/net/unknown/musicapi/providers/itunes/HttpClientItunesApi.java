@@ -22,12 +22,12 @@ public class HttpClientItunesApi implements ItunesApi {
     private final ItunesApiUris itunesApiUris;
 
     @Autowired
-    public HttpClientItunesApi(HttpClient client, ItunesApiUris itunesApiUris){
+    public HttpClientItunesApi(HttpClient client, ItunesApiUris itunesApiUris) {
         this.client = client;
         this.itunesApiUris = itunesApiUris;
     }
 
-    private String performGet(String url){
+    private String performGet(String url) {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(url))
                 .GET()

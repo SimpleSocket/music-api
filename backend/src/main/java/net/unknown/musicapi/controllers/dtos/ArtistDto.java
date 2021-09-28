@@ -1,7 +1,5 @@
 package net.unknown.musicapi.controllers.dtos;
 
-import javax.persistence.Id;
-
 public class ArtistDto {
     private long artistId;
     private String artistName;
