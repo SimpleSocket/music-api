@@ -13,11 +13,14 @@ import java.util.Optional;
 @Service
 public class UserService {
 
-    @Autowired
     private UserRepo userRepo;
+    private ArtistRepo artistRepo;
 
     @Autowired
-    private ArtistRepo artistRepo;
+    public UserService(UserRepo userRepo, ArtistRepo artistRepo){
+        this.userRepo = userRepo;
+        this.artistRepo = artistRepo;
+    }
 
     public void saveArtistForUser(ArtistDto artistDto, long userId){
         Optional<User> wrappedUser = userRepo.findById(userId);
@@ -29,7 +32,6 @@ public class UserService {
             artistRepo.save(artist);
         }
     }
-
 
     public boolean isFavoriteArtist(long amgArtistId, long userId){
         Optional<User> wrappedUser = userRepo.findById(userId);

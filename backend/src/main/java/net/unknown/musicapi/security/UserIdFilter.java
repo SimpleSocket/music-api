@@ -18,6 +18,13 @@ public class UserIdFilter implements Filter {
     @Autowired
     private UserRepo userRepo;
 
+    public UserIdFilter(UserRepo userRepo) {
+        this.userRepo = userRepo;
+    }
+
+    public UserIdFilter() {
+    }
+
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest httpRequest = (HttpServletRequest) servletRequest;

@@ -3,7 +3,7 @@ package net.unknown.musicapi.controllers;
 import net.unknown.musicapi.controllers.dtos.ArtistDto;
 import net.unknown.musicapi.controllers.dtos.SearchByKeyword;
 import net.unknown.musicapi.controllers.dtos.TopAlbum;
-import net.unknown.musicapi.itunes.CacheableItunesApi;
+import net.unknown.musicapi.providers.itunes.CacheableItunesApi;
 import net.unknown.musicapi.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

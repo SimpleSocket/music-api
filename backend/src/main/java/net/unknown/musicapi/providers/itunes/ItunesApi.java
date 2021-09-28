@@ -1,4 +1,4 @@
-package net.unknown.musicapi.itunes;
+package net.unknown.musicapi.providers.itunes;
 
 import java.util.Optional;
 

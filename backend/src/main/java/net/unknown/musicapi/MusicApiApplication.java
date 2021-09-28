@@ -1,6 +1,6 @@
 package net.unknown.musicapi;
 
-import net.unknown.musicapi.itunes.HttpClientItunesApi;
+import net.unknown.musicapi.providers.itunes.HttpClientItunesApi;
 import net.unknown.musicapi.persistence.models.User;
 import net.unknown.musicapi.persistence.repositories.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
