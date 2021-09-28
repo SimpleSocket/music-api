@@ -1,6 +1,5 @@
 package net.unknown.musicapi.itunes;
 
-import net.unknown.musicapi.itunes.HttpClientItunesApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
