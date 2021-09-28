@@ -1,8 +1,8 @@
 package net.unknown.musicapi.controllers;
 
 import net.unknown.musicapi.controllers.dtos.ArtistDto;
-import net.unknown.musicapi.controllers.dtos.SearchByKeyword;
-import net.unknown.musicapi.controllers.dtos.TopAlbum;
+import net.unknown.musicapi.controllers.dtos.Keyword;
+import net.unknown.musicapi.controllers.dtos.AmgArtistId;
 import net.unknown.musicapi.providers.itunes.CacheableItunesApi;
 import net.unknown.musicapi.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ public class AlbumApi {
     private CacheableItunesApi cacheableItunesApi;
 
     @GetMapping(value = "/search", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> searchArtist(@RequestBody SearchByKeyword keyword) {
+    public ResponseEntity<String> searchArtist(@RequestBody Keyword keyword) {
         Optional<String> artists = cacheableItunesApi.searchArtist(keyword.getKeyword());
         return artists.map(ResponseEntity::ok).orElse(null);
     }
@@ -41,10 +41,10 @@ public class AlbumApi {
     }
 
     @GetMapping(value = "/top", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> getTopArtistAlbums(@RequestBody TopAlbum topAlbum, @RequestHeader("Authorization") long id) {
+    public ResponseEntity<String> getTopArtistAlbums(@RequestBody AmgArtistId amgArtistId, @RequestHeader("Authorization") long id) {
 
-        if (userService.isFavoriteArtist(topAlbum.getAmgArtistId(), id)) {
-            String amgArtistIdStr = String.valueOf(topAlbum.getAmgArtistId());
+        if (userService.isFavoriteArtist(amgArtistId.getAmgArtistId(), id)) {
+            String amgArtistIdStr = String.valueOf(amgArtistId.getAmgArtistId());
             return cacheableItunesApi.getTopArtistAlbums(amgArtistIdStr).map(ResponseEntity::ok).orElse(null);
         }
 

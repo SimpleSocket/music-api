@@ -1,14 +1,14 @@
 package net.unknown.musicapi.controllers.dtos;
 
-public class TopAlbum {
+public class AmgArtistId {
 
     private long amgArtistId;
 
-    public TopAlbum(long artistId) {
+    public AmgArtistId(long artistId) {
         this.amgArtistId = artistId;
     }
 
-    public TopAlbum() {
+    public AmgArtistId() {
     }
 
     public long getAmgArtistId() {

@@ -1,14 +1,14 @@
 package net.unknown.musicapi.controllers.dtos;
 
-public class SearchByKeyword {
+public class Keyword {
 
     private String keyword;
 
-    public SearchByKeyword(String keyword) {
+    public Keyword(String keyword) {
         this.keyword = keyword;
     }
 
-    public SearchByKeyword() {
+    public Keyword() {
 
     }
 

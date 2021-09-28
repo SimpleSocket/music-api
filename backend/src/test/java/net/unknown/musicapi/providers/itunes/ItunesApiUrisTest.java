@@ -18,13 +18,13 @@ public class ItunesApiUrisTest {
     @Test
     public void  should_returnCorrectFetchUrl_whenGiveCorrectParams(){
         String artistId = "123";
-        Assertions.assertThat( itunesApiUris.getTopArtistAlbums(artistId)).isEqualTo("https://localhost.com/lookup?entity=album&limit=5&amgArtistId=" + artistId);
+        Assertions.assertThat(itunesApiUris.getTopArtistAlbums(artistId)).isEqualTo("https://localhost.com/lookup?entity=album&limit=5&amgArtistId=" + artistId);
     }
 
     @Test
     public void  should_returnCorrectSearchUrl_whenGiveCorrectParams(){
         String artistId = "123";
-        Assertions.assertThat( itunesApiUris.getUriToSearchArtist(artistId)).isEqualTo("https://localhost.com/search?entity=allArtist&term=" + artistId);
+        Assertions.assertThat(itunesApiUris.getUriToSearchArtist(artistId)).isEqualTo("https://localhost.com/search?entity=allArtist&term=" + artistId);
     }
 
 }
