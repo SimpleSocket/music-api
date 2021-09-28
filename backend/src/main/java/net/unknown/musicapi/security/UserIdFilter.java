@@ -5,6 +5,7 @@ import net.unknown.musicapi.persistence.repositories.UserRepo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -37,11 +38,11 @@ public class UserIdFilter implements Filter {
              authHeader = Long.parseLong(header);
         } catch (NumberFormatException e){
             log.warn("Authorization header is not expected format, expected long, received {}", header);
-            response.setStatus(401);
+            response.setStatus(HttpStatus.UNAUTHORIZED.value());
             return;
         }
         if (!userRepo.existsById(authHeader)) {
-            response.setStatus(401);
+            response.setStatus(HttpStatus.UNAUTHORIZED.value());
             return;
         }
 
