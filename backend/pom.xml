@@ -13,9 +13,12 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>music-api</name>
     <description>Demo project for Spring Boot</description>
+    
     <properties>
         <java.version>11</java.version>
+        <caffeine.version>2.5.5</caffeine.version>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -46,7 +49,7 @@
         <dependency>
             <groupId>com.github.ben-manes.caffeine</groupId>
             <artifactId>caffeine</artifactId>
-            <version>2.5.5</version>
+            <version>${caffeine.version}</version>
         </dependency>
     </dependencies>
 
