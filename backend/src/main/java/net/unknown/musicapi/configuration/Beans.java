@@ -1,6 +1,7 @@
 package net.unknown.musicapi.configuration;
 
 import com.github.benmanes.caffeine.cache.Caffeine;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.caffeine.CaffeineCacheManager;
@@ -20,8 +21,8 @@ public class Beans {
     }
 
     @Bean
-    public Caffeine caffeineConfig() {
-        return Caffeine.newBuilder().expireAfterWrite(60, TimeUnit.MINUTES);
+    public Caffeine caffeineConfig(@Value("${music.provider.cache.expiration}") int expirationInMinutes) {
+        return Caffeine.newBuilder().expireAfterWrite(expirationInMinutes, TimeUnit.MINUTES);
     }
 
     @Bean

@@ -28,8 +28,8 @@ public class User {
         artists.add(artist);
     }
 
-    public boolean isArtistPresent(long artistId) {
-        return artists.stream().anyMatch(artist -> artist.getArtistId() == artistId);
+    public boolean isArtistPresent(long amgArtistId) {
+        return artists.stream().anyMatch(artist -> artist.getAmgArtistId() == amgArtistId);
     }
 
     public List<Artist> getArtists() {

@@ -37,4 +37,8 @@ public class UserService {
         Optional<User> wrappedUser = userRepo.findById(userId);
         return wrappedUser.map(user -> user.isArtistPresent(amgArtistId)).orElse(false);
     }
+
+    public boolean isNotFavoriteArtist(long amgArtistId, long userId) {
+        return !isFavoriteArtist(amgArtistId, userId);
+    }
 }

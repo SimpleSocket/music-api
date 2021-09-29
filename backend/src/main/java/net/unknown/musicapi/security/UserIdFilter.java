@@ -6,24 +6,23 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+@Component
 public class UserIdFilter implements Filter {
 
     private static final Logger log = LoggerFactory.getLogger(UserIdFilter.class);
 
-    @Autowired
     private UserRepo userRepo;
 
-    public UserIdFilter(UserRepo userRepo) {
+    @Autowired
+    public UserIdFilter(UserRepo userRepo){
         this.userRepo = userRepo;
-    }
-
-    public UserIdFilter() {
     }
 
     @Override

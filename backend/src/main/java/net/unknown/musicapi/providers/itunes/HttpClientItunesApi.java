@@ -40,6 +40,7 @@ public class HttpClientItunesApi implements ItunesApi {
             logger.warn("Request to the following url {} failed, received the following exception", url, e);
             throw new ApiRequestFailed("");
         }
+
         return response.body();
     }
 
