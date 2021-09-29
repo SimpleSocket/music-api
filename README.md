@@ -17,7 +17,7 @@ hostname is localhost
 to use /artist/* endpoints you need to supply **Authorization id** which equals the user id in the H2 database.
 **For simplicity a default user with userId is created 100001**
 
-The postman collection included in the repository has set Authorization header with valid request bodies and path parameters
+The postman collection included in the repository has set Authorization header and valid request bodies and path parameters
 
 ---
     /artist/search/{keyword}
