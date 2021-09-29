@@ -14,6 +14,12 @@ randomly generated strong DB password and disabled H2 console
 **testing configuration**
 hostname is localhost
 
+To select a configuration you will need to pass the following environment variable 
+spring.profiles.active={configuration}
+
+e.g.
+spring.profiles.active=local
+
 to use /artist/* endpoints you need to supply **Authorization id** which equals the user id in the H2 database.
 **For simplicity a default user with userId is created 100001**
 
@@ -24,6 +30,8 @@ The postman collection included in the repository has set Authorization header a
 keyword example = abba, acdc 
 
 Will return 200 OK status code on success  with body from itunes
+
+Will return 401 unauthorized if Authorization header is does not exist or id is invalid
 
 ---
     /artist/save
@@ -39,6 +47,8 @@ Will return 201 Created status code on success
 
 Will return 409 Status if some reason it failed to save
 
+Will return 401 unauthorized if Authorization header is does not exist or id is invalid
+
 ---
     /artist/top/{amgArtistId}
 
@@ -47,6 +57,8 @@ Returns artist top 5 albums only if the artist was saved to favorite artists. As
 Will return 201 Created status code on success with body from itunes
 
 Will return 409 Status if the artist is not in the users favorites
+
+Will return 401 unauthorized if Authorization header is does not exist or id is invalid
 
 ---
     /health/ping
