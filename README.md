@@ -31,7 +31,7 @@ keyword example = abba, acdc
 
 Will return 200 OK status code on success  with body from itunes
 
-Will return 401 unauthorized if Authorization header is does not exist or id is invalid
+Will return 401 unauthorized if Authorization header does not exist or id is invalid
 
 ---
     /artist/save
@@ -47,7 +47,7 @@ Will return 201 Created status code on success
 
 Will return 409 Status if some reason it failed to save
 
-Will return 401 unauthorized if Authorization header is does not exist or id is invalid
+Will return 401 unauthorized if Authorization header does not exist or id is invalid
 
 ---
     /artist/top/{amgArtistId}
@@ -58,7 +58,7 @@ Will return 201 Created status code on success with body from itunes
 
 Will return 409 Status if the artist is not in the users favorites
 
-Will return 401 unauthorized if Authorization header is does not exist or id is invalid
+Will return 401 unauthorized if Authorization header does not exist or id is invalid
 
 ---
     /health/ping
