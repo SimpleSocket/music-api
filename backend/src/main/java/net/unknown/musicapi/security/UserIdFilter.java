@@ -36,12 +36,13 @@ public class UserIdFilter implements Filter {
         try {
             authHeader = Long.parseLong(header);
         } catch (NumberFormatException e) {
-            log.warn("Authorization header is not expected format, expected long, received {}", header);
+            log.info("Authorization header is not expected format, expected long, received {}", header);
             response.setStatus(HttpStatus.UNAUTHORIZED.value());
             return;
         }
         if (!userRepo.existsById(authHeader)) {
             response.setStatus(HttpStatus.UNAUTHORIZED.value());
+            log.info("Authorization header contained correct format id, but no user exists with that id {}", header);
             return;
         }
 
