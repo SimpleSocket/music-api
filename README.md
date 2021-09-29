@@ -34,6 +34,7 @@ Requires request body e.g.
 All request body values are taken from the result /artist/search/abba
 
 Will return 201 Created status code on success 
+
 Will return 409 Status if some reason it failed to save
 
 ---
@@ -42,9 +43,10 @@ Will return 409 Status if some reason it failed to save
 Returns artist top 5 albums only if the artist was saved to favorite artists. As the specification requires
 
 Will return 201 Created status code on success with body from itunes
+
 Will return 409 Status if the artist is not in the users favorites
 
 ---
     /health/ping
-Simple ping health check exists.
+Simple ping health check exists. Will return 200 OK status code with pong response 
 
