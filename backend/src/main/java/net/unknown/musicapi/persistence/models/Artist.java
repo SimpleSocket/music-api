@@ -1,9 +1,11 @@
 package net.unknown.musicapi.persistence.models;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Table;
+import net.unknown.musicapi.dtos.ArtistDto;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +19,7 @@ public class Artist {
     private long amgArtistId;
 
     @ManyToMany()
-    private List<User> users = new ArrayList<>();
+    private List<Fan> fans = new ArrayList<>();
 
     public Artist() {
     }
@@ -28,8 +30,14 @@ public class Artist {
         this.amgArtistId = amgArtistId;
     }
 
-    public void addUser(User user) {
-        users.add(user);
+    public Artist(ArtistDto artistDto) {
+        this.artistId = artistDto.artistId();
+        this.artistName = artistDto.artistName();
+        this.amgArtistId = artistDto.amgArtistId();
+    }
+
+    public void addUser(Fan fan) {
+        fans.add(fan);
     }
 
     public long getArtistId() {

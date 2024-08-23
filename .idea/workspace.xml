@@ -5,16 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="82dc75a4-921e-4d59-adbb-c8646e1bc1e6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/net/unknown/musicapi/controllers/ArtistController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/backend/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/net/unknown/musicapi/MusicApiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/net/unknown/musicapi/MusicApiApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/net/unknown/musicapi/configuration/Beans.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/net/unknown/musicapi/configuration/HttpClientConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/net/unknown/musicapi/configuration/ItunesApiConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/net/unknown/musicapi/configuration/ItunesApiConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/net/unknown/musicapi/configuration/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/net/unknown/musicapi/configuration/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/net/unknown/musicapi/controllers/AlbumApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/net/unknown/musicapi/controllers/AlbumApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/net/unknown/musicapi/controllers/dtos/SearchByKeyword.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/net/unknown/musicapi/controllers/dtos/Keyword.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/net/unknown/musicapi/controllers/dtos/TopAlbum.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/net/unknown/musicapi/controllers/dtos/AmgArtistId.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/net/unknown/musicapi/controllers/ArtistApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/net/unknown/musicapi/controllers/SimpleHealthCheck.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/net/unknown/musicapi/controllers/advices/AlbumApiException.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/net/unknown/musicapi/exceptions/AlbumApiException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/net/unknown/musicapi/controllers/dtos/ArtistDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/net/unknown/musicapi/dtos/ArtistDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/net/unknown/musicapi/persistence/models/Artist.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/net/unknown/musicapi/persistence/models/Artist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/net/unknown/musicapi/persistence/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/net/unknown/musicapi/persistence/models/Fan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/net/unknown/musicapi/persistence/repositories/UserRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/net/unknown/musicapi/persistence/repositories/UserRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/net/unknown/musicapi/providers/itunes/CacheableItunesApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/net/unknown/musicapi/providers/itunes/HttpClientItunesApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/net/unknown/musicapi/providers/ItunesClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/net/unknown/musicapi/providers/itunes/ItunesApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/net/unknown/musicapi/providers/itunes/ItunesApiUris.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/net/unknown/musicapi/security/UserIdFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/net/unknown/musicapi/filters/UserIdFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/net/unknown/musicapi/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/net/unknown/musicapi/services/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application-local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application-local.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application-prod.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application-prod.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application-test.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application-test.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/script.sql" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/net/unknown/musicapi/providers/itunes/ItunesApiUrisTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/net/unknown/musicapi/providers/itunes/ItunesApiUrisTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/import.sql" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/import.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/net/unknown/musicapi/MusicApiApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/net/unknown/musicapi/MusicApiApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/net/unknown/musicapi/providers/itunes/ItunesApiUrisTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/net/unknown/musicapi/providers/ItunesApiUrisTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/postman_collection_2.1/MusicApi.postman_collection.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,16 +50,27 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="1ympVVQgYzYPWVr5F5avL8DVHH9" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend" />
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/tomjur4/Desktop/codebases/music-api/postman_collection_2.1"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\tomjur4\Desktop\codebases\music-api\postman_collection_2.1" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.MusicApiApplication">
     <configuration name="MusicApiApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -133,6 +163,5 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

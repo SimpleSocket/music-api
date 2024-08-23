@@ -1,6 +1,5 @@
-package net.unknown.musicapi.controllers.advices;
+package net.unknown.musicapi.exceptions;
 
-import net.unknown.musicapi.exceptions.ApiRequestFailed;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -9,8 +8,8 @@ import org.springframework.web.context.request.WebRequest;
 
 @ControllerAdvice
 public class AlbumApiException {
-    @ExceptionHandler({ApiRequestFailed.class})
+    @ExceptionHandler({ApiRequestFailed.class, ServiceUnavailableException.class})
     public final ResponseEntity<String> handleException(Exception ex, WebRequest request) {
-        return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).build();
+        return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).body(ex.getMessage());
     }
 }

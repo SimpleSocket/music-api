@@ -1,6 +1,9 @@
-package net.unknown.musicapi.security;
+package net.unknown.musicapi.filters;
 
 
+import jakarta.servlet.*;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import net.unknown.musicapi.persistence.repositories.UserRepo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,9 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
-import javax.servlet.*;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Component
@@ -18,10 +18,10 @@ public class UserIdFilter implements Filter {
 
     private static final Logger log = LoggerFactory.getLogger(UserIdFilter.class);
 
-    private UserRepo userRepo;
+    private final UserRepo userRepo;
 
     @Autowired
-    public UserIdFilter(UserRepo userRepo){
+    public UserIdFilter(UserRepo userRepo) {
         this.userRepo = userRepo;
     }
 

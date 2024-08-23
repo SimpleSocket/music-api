@@ -1,27 +1,32 @@
 package net.unknown.musicapi.persistence.models;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Table;
+
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity(name = "user")
-@Table(name = "user")
-public class User {
+/*
+The entity in the task is user but this is a reserved keyword on Db2 database which causes a lot of issues, which
+were not present a few years ago. For that reason our user is a fan from now on.
+ */
+@Entity(name = "fan")
+@Table(name = "fan")
+public class Fan {
 
     @Id
     private long id;
 
-    @ManyToMany(mappedBy = "users")
+    @ManyToMany(mappedBy = "fans")
     private List<Artist> artists = new ArrayList<>();
 
-    public User(long id) {
+    public Fan(long id) {
         this.id = id;
     }
 
-    public User() {
+    public Fan() {
     }
 
     public void addArtist(Artist artist) {
