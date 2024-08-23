@@ -43,14 +43,14 @@ public class ItunesClient {
         try {
             response = client.send(request, HttpResponse.BodyHandlers.ofString());
         } catch (IOException | InterruptedException e) {
-            logger.warn("Request to the following url {} failed, received the following exception", request.uri(), e);
+            logger.warn("Request to the following uri: {} failed, received the following exception", request.uri(), e);
             throw new ApiRequestFailed("");
         }
 
         if (response.statusCode() == SERVICE_UNAVAILABLE.value()){
+            logger.warn("Itunes service is unavailable, request uri: {}", request.uri());
             throw new ServiceUnavailableException("Service is unavailable at the current time");
         }
-
 
         return response.body();
     }

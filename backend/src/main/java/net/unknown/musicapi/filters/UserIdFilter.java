@@ -4,7 +4,7 @@ package net.unknown.musicapi.filters;
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import net.unknown.musicapi.persistence.repositories.UserRepo;
+import net.unknown.musicapi.persistence.repositories.FanRepo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,11 +18,11 @@ public class UserIdFilter implements Filter {
 
     private static final Logger log = LoggerFactory.getLogger(UserIdFilter.class);
 
-    private final UserRepo userRepo;
+    private final FanRepo fanRepo;
 
     @Autowired
-    public UserIdFilter(UserRepo userRepo) {
-        this.userRepo = userRepo;
+    public UserIdFilter(FanRepo fanRepo) {
+        this.fanRepo = fanRepo;
     }
 
     @Override
@@ -40,7 +40,7 @@ public class UserIdFilter implements Filter {
             response.setStatus(HttpStatus.UNAUTHORIZED.value());
             return;
         }
-        if (!userRepo.existsById(authHeader)) {
+        if (!fanRepo.existsById(authHeader)) {
             response.setStatus(HttpStatus.UNAUTHORIZED.value());
             log.info("Authorization header contained correct format id, but no user exists with that id {}", header);
             return;

@@ -4,7 +4,7 @@ import net.unknown.musicapi.dtos.ArtistDto;
 import net.unknown.musicapi.persistence.models.Artist;
 import net.unknown.musicapi.persistence.models.Fan;
 import net.unknown.musicapi.persistence.repositories.ArtistRepo;
-import net.unknown.musicapi.persistence.repositories.UserRepo;
+import net.unknown.musicapi.persistence.repositories.FanRepo;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -19,8 +19,12 @@ import static org.mockito.Mockito.*;
 
 public class FanServiceTest {
 
+    private static final long USER_ID = 1L;
+
+    private static final long AMD_ARTIST_ID = 100L;
+
     @Mock
-    private UserRepo userRepo;
+    private FanRepo fanRepo;
 
     @Mock
     private ArtistRepo artistRepo;
@@ -28,77 +32,59 @@ public class FanServiceTest {
     @InjectMocks
     private UserService userService;
 
+    private final ArtistDto artistDto = new ArtistDto(1, "ab", 1);
+
     @BeforeEach
     public void setUp() {
         MockitoAnnotations.openMocks(this);
     }
 
     @Test
-    public void testSaveArtistForUser_UserExists() {
-        long userId = 1L;
-        ArtistDto artistDto = new ArtistDto(1, "ab", 1); // Create a valid ArtistDto here
+    public void artistIsSavedForExistingFan() {
         Fan fan = mock(Fan.class);
-        when(userRepo.findById(userId)).thenReturn(Optional.of(fan));
+        when(fanRepo.findById(USER_ID)).thenReturn(Optional.of(fan));
 
-        userService.saveArtistForUser(artistDto, userId);
+        userService.saveArtistForUser(artistDto, USER_ID);
 
-        verify(userRepo).findById(userId);
+        verify(fanRepo).findById(USER_ID);
         verify(artistRepo).save(any(Artist.class));
-        verify(fan).addArtist(any(Artist.class)); // Assuming User has an addArtist method
+        verify(fanRepo).save(any(Fan.class));
+        verify(fan).addArtist(any(Artist.class));
     }
 
     @Test
-    public void testSaveArtistForUser_UserDoesNotExist() {
-        long userId = 1L;
-        ArtistDto artistDto = new ArtistDto(1, "ab", 1); // Create a valid ArtistDto here
-        when(userRepo.findById(userId)).thenReturn(Optional.empty());
+    public void artistIsNotSavedForNonExistingFan() {
+        when(fanRepo.findById(USER_ID)).thenReturn(Optional.empty());
 
-        userService.saveArtistForUser(artistDto, userId);
+        userService.saveArtistForUser(artistDto, USER_ID);
 
-        verify(userRepo).findById(userId);
+        verify(fanRepo).findById(USER_ID);
         verify(artistRepo, never()).save(any(Artist.class));
     }
 
     @Test
-    public void testIsFavoriteArtist_ArtistIsFavorite() {
-        long userId = 1L;
-        long amgArtistId = 100L;
+    public void savedAristCountsAsFavorite() {
         Fan fan = mock(Fan.class);
-        when(userRepo.findById(userId)).thenReturn(Optional.of(fan));
-        when(fan.isArtistPresent(amgArtistId)).thenReturn(true);
+        when(fanRepo.findById(USER_ID)).thenReturn(Optional.of(fan));
+        when(fan.isArtistPresent(AMD_ARTIST_ID)).thenReturn(true);
 
-        boolean result = userService.isFavoriteArtist(amgArtistId, userId);
+        boolean result = userService.isFavoriteArtist(AMD_ARTIST_ID, USER_ID);
 
         assertTrue(result);
-        verify(userRepo).findById(userId);
-        verify(fan).isArtistPresent(amgArtistId);
+        verify(fanRepo).findById(USER_ID);
+        verify(fan).isArtistPresent(AMD_ARTIST_ID);
     }
 
     @Test
-    public void testIsFavoriteArtist_ArtistIsNotFavorite() {
-        long userId = 1L;
-        long amgArtistId = 100L;
+    public void whenArtistIsNotSavedCheckingIsFavoriteResultsInFalse() {
         Fan fan = mock(Fan.class);
-        when(userRepo.findById(userId)).thenReturn(Optional.of(fan));
-        when(fan.isArtistPresent(amgArtistId)).thenReturn(false);
+        when(fanRepo.findById(USER_ID)).thenReturn(Optional.of(fan));
+        when(fan.isArtistPresent(AMD_ARTIST_ID)).thenReturn(false);
 
-        boolean result = userService.isFavoriteArtist(amgArtistId, userId);
-
-        assertFalse(result);
-        verify(userRepo).findById(userId);
-        verify(fan).isArtistPresent(amgArtistId);
-    }
-
-    @Test
-    public void testIsFavoriteArtist_UserDoesNotExist() {
-        long userId = 1L;
-        long amgArtistId = 100L;
-        when(userRepo.findById(userId)).thenReturn(Optional.empty());
-
-        boolean result = userService.isFavoriteArtist(amgArtistId, userId);
+        boolean result = userService.isFavoriteArtist(AMD_ARTIST_ID, USER_ID);
 
         assertFalse(result);
-        verify(userRepo).findById(userId);
+        verify(fanRepo).findById(USER_ID);
+        verify(fan).isArtistPresent(AMD_ARTIST_ID);
     }
-
 }

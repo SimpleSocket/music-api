@@ -4,7 +4,7 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import net.unknown.musicapi.persistence.repositories.UserRepo;
+import net.unknown.musicapi.persistence.repositories.FanRepo;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -20,21 +20,21 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 public class UserIdFilterTest {
 
-    private UserRepo userRepo;
+    private FanRepo fanRepo;
     private UserIdFilter userIdFilter;
 
 
     @BeforeEach
     public void setup() {
-        this.userRepo = mock(UserRepo.class);
-        this.userIdFilter = new UserIdFilter(userRepo);
+        this.fanRepo = mock(FanRepo.class);
+        this.userIdFilter = new UserIdFilter(fanRepo);
     }
 
     @Test
     public void whenUserExistsTheRequestIsForwarded() throws ServletException, IOException {
         HttpServletRequest httpServletRequest = mock(HttpServletRequest.class);
         when(httpServletRequest.getHeader(eq("Authorization"))).thenReturn("1");
-        when(userRepo.existsById(eq(1L))).thenReturn(true);
+        when(fanRepo.existsById(eq(1L))).thenReturn(true);
         FilterChain filterChain = mock(FilterChain.class);
 
         userIdFilter.doFilter(httpServletRequest, mock(HttpServletResponse.class), filterChain);
@@ -46,7 +46,7 @@ public class UserIdFilterTest {
     public void whenUserDoesNotExistsNotAuthorizedStatusIsReturned() throws ServletException, IOException {
         HttpServletRequest httpServletRequest = mock(HttpServletRequest.class);
         when(httpServletRequest.getHeader(eq("Authorization"))).thenReturn("1");
-        when(userRepo.existsById(any())).thenReturn(false);
+        when(fanRepo.existsById(any())).thenReturn(false);
         FilterChain filterChain = mock(FilterChain.class);
         MockHttpServletResponse servletResponse = new MockHttpServletResponse();
 
