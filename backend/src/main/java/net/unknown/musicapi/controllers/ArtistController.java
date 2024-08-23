@@ -43,8 +43,10 @@ public class ArtistController {
     public ResponseEntity<String> getTopArtistAlbums(@PathVariable("amgArtistId") long amgArtistId, @RequestHeader("Authorization") long id) {
 
         if (userService.isFavoriteArtist(amgArtistId, id)) {
-            String amgArtistIdStr = String.valueOf(amgArtistId);
-            return itunesClient.getTopArtistAlbums(amgArtistIdStr).map(ResponseEntity::ok).orElse(null);
+            return itunesClient
+                    .getTopArtistAlbums(String.valueOf(amgArtistId))
+                    .map(ResponseEntity::ok)
+                    .orElse(null);
         }
 
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Artists top albums can only be viewed when selected artist is saved as favorite");
