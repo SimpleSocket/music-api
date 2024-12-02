@@ -21,27 +21,29 @@ public class ItunesApiConfiguration {
 
     }
 
-    public String getHostname() {
-        return hostname;
-    }
-
     public void setHostname(String hostname) {
         this.hostname = hostname;
     }
 
-    public String getArtist() {
-        return artist;
+    public void setAlbum(String album) {
+        this.album = album;
     }
 
     public void setArtist(String artist) {
         this.artist = artist;
     }
 
-    public String getAlbum() {
-        return album;
+    public String getUriToSearchArtist(String keyword) {
+        String hostname = this.hostname;
+        String search = this.artist;
+
+        return hostname.concat(search).concat(keyword);
     }
 
-    public void setAlbum(String album) {
-        this.album = album;
+    public String getTopArtistAlbums(String artistId) {
+        String hostname = this.hostname;
+        String search = this.album;
+
+        return hostname.concat(search).concat(artistId);
     }
 }

@@ -26,19 +26,19 @@ to use /artist/* endpoints you need to supply **Authorization id** which equals 
 The postman collection included in the repository has set Authorization header and valid request bodies and path parameters
 
 ---
-    /artist/search/{keyword}
+    /artist?keyword={keyword}
 keyword example = abba, acdc 
 
 Will return 200 OK status code on success  with body from itunes
 
 Will return 401 Unauthorized if Authorization header does not exist or id is invalid
 
-Will return 409 Status if some reason it failed to save
+Will return 409 if too many requests
 
 Will return 503 service unavailable if calling music provider fails
 
 ---
-    /artist/save
+    /artist
 
 Requires request body e.g.
   
@@ -47,26 +47,22 @@ Requires request body e.g.
 
 All request body values are taken from the result /artist/search/abba
 
-Will return 201 Created status code on success 
-
-Will return 409 Conflict Status if some reason it failed to save
+Will return 201 Created status code on success
 
 Will return 401 Unauthorized if Authorization header does not exist or id is invalid
 
+Will return 409 if too many requests
+
 ---
-    /artist/top/{amgArtistId}
+    /artist/{amgArtistId}/top-albums
 
 Returns artist top 5 albums only if the artist was saved to favorite artists. As the specification requires
 
 Will return 201 Created status code on success with body from itunes
 
-Will return 409 Conflict Status if the artist is not in the users favorites
-
 Will return 401 Unauthorized if Authorization header does not exist or id is invalid
 
-Will return 503 service unavailable if calling music provider fails
+Will return 409 if too many requests
 
----
-    /health/ping
-Simple ping health check exists. Will return 200 OK status code with pong response 
+Will return 503 service unavailable if calling music provider fails
 
