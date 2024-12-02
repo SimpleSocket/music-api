@@ -2,7 +2,7 @@ package net.unknown.musicapi.controllers;
 
 
 import net.unknown.musicapi.dtos.ArtistDto;
-import net.unknown.musicapi.providers.ItunesClient;
+import net.unknown.musicapi.clients.ItunesClient;
 import net.unknown.musicapi.services.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,11 +20,15 @@ public class ArtistController {
 
     private static final Logger log = LoggerFactory.getLogger(ArtistController.class);
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
+
+    private final ItunesClient itunesClient;
 
     @Autowired
-    private ItunesClient itunesClient;
+    public ArtistController(UserService userService, ItunesClient itunesClient) {
+        this.userService = userService;
+        this.itunesClient = itunesClient;
+    }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> searchArtist(@RequestParam(name = "keyword") String keyword) {

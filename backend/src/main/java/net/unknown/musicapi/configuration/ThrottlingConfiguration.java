@@ -13,7 +13,7 @@ import java.time.Duration;
 public class ThrottlingConfiguration {
 
     @Bean
-    public Bucket createNewBucket(@Value("${throttling.hourly.rate}") int tokenNumber ) {
+    public Bucket createNewBucket(@Value("${throttling.hourly.rate}") int tokenNumber) {
         return Bucket.builder()
                 .addLimit(limit -> limit
                         .capacity(tokenNumber)

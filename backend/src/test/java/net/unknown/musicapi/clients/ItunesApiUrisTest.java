@@ -1,4 +1,4 @@
-package net.unknown.musicapi.providers;
+package net.unknown.musicapi.clients;
 
 import net.unknown.musicapi.configuration.ItunesApiConfiguration;
 import org.assertj.core.api.Assertions;

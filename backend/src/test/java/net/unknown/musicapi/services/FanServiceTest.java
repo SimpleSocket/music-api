@@ -22,17 +22,13 @@ public class FanServiceTest {
     private static final long USER_ID = 1L;
 
     private static final long AMD_ARTIST_ID = 100L;
-
+    private final ArtistDto artistDto = new ArtistDto(1, "ab", 1);
     @Mock
     private FanRepo fanRepo;
-
     @Mock
     private ArtistRepo artistRepo;
-
     @InjectMocks
     private UserService userService;
-
-    private final ArtistDto artistDto = new ArtistDto(1, "ab", 1);
 
     @BeforeEach
     public void setUp() {

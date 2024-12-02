@@ -10,6 +10,8 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
+import static org.springframework.http.HttpStatus.TOO_MANY_REQUESTS;
+
 @Component
 public class ThrottlingFilter implements Filter {
 
@@ -35,7 +37,7 @@ public class ThrottlingFilter implements Filter {
 
         HttpServletResponse httpResponse = (HttpServletResponse) servletResponse;
         httpResponse.setContentType("text/plain");
-        httpResponse.setStatus(429);
+        httpResponse.setStatus(TOO_MANY_REQUESTS.value());
         httpResponse.getWriter().append("Too many requests");
     }
 }

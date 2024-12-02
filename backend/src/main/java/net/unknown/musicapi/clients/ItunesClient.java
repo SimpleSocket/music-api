@@ -1,4 +1,4 @@
-package net.unknown.musicapi.providers;
+package net.unknown.musicapi.clients;
 
 import net.unknown.musicapi.configuration.ItunesApiConfiguration;
 import net.unknown.musicapi.exceptions.ApiRequestFailed;
@@ -47,7 +47,7 @@ public class ItunesClient {
             throw new ApiRequestFailed("");
         }
 
-        if (response.statusCode() == SERVICE_UNAVAILABLE.value()){
+        if (response.statusCode() == SERVICE_UNAVAILABLE.value()) {
             logger.warn("Itunes service is unavailable, request uri: {}", request.uri());
             throw new ServiceUnavailableException("Service is unavailable at the current time");
         }
